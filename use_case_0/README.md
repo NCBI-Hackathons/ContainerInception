@@ -37,6 +37,7 @@ sudo apt-get install -y python-pip
 
 ## Fastqc
 ```
+mkdir fastqc_out
 fastqc ~/ContainerInception/sample_data/sample_1_R1.fq.gz ~/ContainerInception/sample_data/sample_1_R2.fq.gz -o fastqc_out
 ```
 
