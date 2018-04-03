@@ -6,30 +6,37 @@ By the end of this tutorial, the reader will have a working knowledge of packagi
 
 The example in our use cases involve a typical quality control and mapping of RNA-seq data of Sorghum bicolor. 
 
-
 ![alt text](generate_flowchart/flowChartImages/useCase0.png)
 
 ## Use case 0: No containers and no CWL. 
 
-Most users fall in this categories. 
-It is difficult to update the modules, it does not scale, and reproducibility is not maintained. 
-Some people run them as bash script while others run them as individual software. 
+<img style="float:right;"
+src="generate_flowchart/flowChartImages/useCase0.png">
+
+LIST:
+
+- Most users fall in this categories. 
+- It is difficult to update the modules, it does not scale, and reproducibility is not maintained. 
+- Some people run them as bash script while others run them as individual software.
+
+![alt text](generate_flowchart/flowChartImages/useCase11.png)
 
 Use case 1: Containers with no CWL
 
 Container and no cwl: Most users who use Docker fall under this category. When using containers you are mixing 0 and 1. Docker is supposed to be using one thing at a time. For example one of the authors uses 1,000 lines to create a docker. Difficult to swap in the wrapper script.
-
+| ![alt text](generate_flowchart/flowChartImages/useCase0.png) 
 [Fastqc -> trimmomatic -> Fastqc -> tophat2] (bash script)
 Make a docker image that contains 4 softwares
 
 ## Use case 1.1 (Nick)
 
-
-Multiple (individual) containers with no cwl. Sometimes you have multiple containers but you have to string them together using bash script but it’s not easy stitch them and will mostly be hardcoded
+Container(s) with no cwl. Sometimes you have multiple containers but you have to string them together using bash script but it’s not easy stitch them and will mostly be hardcoded
 
 [Fastqc] -> [trimmomatic] -> [Fastqc] -> [tophat2]  (bash script)
 
 Individual containers for each software and no cwl. We will write a bash script
+
+![alt text](generate_flowchart/flowChartImages/useCase2.png)
 
 ## Use case 2 (Mike)
 
