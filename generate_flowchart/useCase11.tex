@@ -1,0 +1,24 @@
+\documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\input{preamble.tex}
+\begin{document}
+\pagestyle{empty}
+\input{macros.tex}
+
+% User case 1: Single containers + no CWL
+%[Fastqc -> trimmomatic -> Fastqc -> tophat2] (bash script)
+\begin{tikzpicture}[node distance = 2cm, auto]
+  \centering
+  % Place nodes
+    \node [singleContainer] (trimmomatic) {trimmomatic};
+    \node [singleContainer, below of=trimmomatic] (rightFastqc) {Fastqc};
+    \node [singleContainer, above of=trimmomatic] (leftFastqc) {Fastqc};
+    \node [singleContainer, below of=rightFastqc] (tophat2) {tophat2};
+    \node [method, below of=tophat2] (method) {bash script};
+    % Draw edges
+    \path [arrow] (leftFastqc) -- (trimmomatic);
+    \path [arrow] (trimmomatic) -- (rightFastqc);
+    \path [arrow] (rightFastqc) -- (tophat2);
+    \path [line, dashed] (tophat2)--(method);
+\end{tikzpicture}
+
+\end{document}
