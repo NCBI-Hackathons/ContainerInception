@@ -2,7 +2,14 @@
 
 run_workflow() {
 
-    sudo docker run -i -t "5db39ca47927" fastqc -h
+    # run trimmomatic
+    #java -jar ~/ContainerInception/softwares/Trimmomatic-0.36/trimmomatic-0.36.jar PE -phred33 sample_1_R1.fq.gz sample_1_R2.fq.gz output_R1_paired.fq.gz output_R1_unpaired.fq.gz output_R2_paired.fq.gz output_R2_unpaired.fq.gz ILLUMINACLIP:../sample_data/Adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+
+
+    # run FastQC
+    mkdir -p fastqc_out/fastqc_out
+    sudo docker pull fjukstad/fastqc
+    sudo docker run -v ${PWD}:/fastqc_out -w /fastqc_out --name fastqc fjukstad/fastqc:latest $1 $2 -o fastqc_out/fastqc_out
 
 }
 
