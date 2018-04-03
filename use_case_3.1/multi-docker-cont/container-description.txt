@@ -1,0 +1,18 @@
+Multicontainer container:
+	       
+		Container 1:
+	       		fastqc processing of data.
+			docker pull quay.io/biocontainers/fastqc:0.11.7--pl5.22.0_0
+
+		Container 2:
+			trimmomatic 
+			docker pull quay.io/biocontainers/trimmomatic:0.36--5
+		
+		Container 3:
+			fastqc processing
+			docker pull docker pull quay.io/biocontainers/fastqc:0.11.7--pl5.22.0_0
+
+		Container 4:
+			tophat 
+			docker pull quay.io/biocontainers/tophat:2.1.1--py27_1 
+			  
