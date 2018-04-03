@@ -13,7 +13,7 @@
     \node [container, below of=trimmomatic] (rightFastqc) {Fastqc};
     \node [container, above of=trimmomatic] (leftFastqc) {Fastqc};
     \node [container, below of=rightFastqc] (tophat2) {tophat2};
-    \node [method, below of=tophat2] (method) {bash script};
+    \node [method, below of=tophat2] (method) {CWL};
     % Draw edges
     \path [arrow] (leftFastqc) -- (trimmomatic);
     \path [arrow] (trimmomatic) -- (rightFastqc);
