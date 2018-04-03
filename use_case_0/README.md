@@ -61,5 +61,28 @@ bowtie2-build ~/ContainerInception/sample_data/reference_genome.fa ~/ContainerIn
 tophat2 -p 4 -G ~/ContainerInception/sample_data/reference.gtf -o tophat_out ~/ContainerInception/sample_data/reference_genome.fa output_forward_paired.fq.gz output_reverse_paired.fq.gz
 
 tophat2 -p 4 -G ~/ContainerInception/sample_data/reference.gtf -o tophat_out ~/ContainerInception/sample_data/reference_genome trimout/output_forward_paired.fq.gz trimout/output_reverse_paired.fq.gz output_reverse_paired.fq.gz 
+```
 
+# Running as wrapper script
+
+```
+bash case_0_wrapper.sh -h
+
+Usage : sh case_0_wrapper.sh -g <reference_genome> -A <reference_annotation> {-1 <left_reads> -2 <right_reads> | -U <single_reads> } -p num_threads -m mode -t trim_file -a adapter_file
+
+  
+  ###### Command line options ##########
+  -g <reference genome fasta file>
+  -A <reference genome annotation>
+  -1 <reads_1>
+               # Make sure both the paired end reads are present
+  -2 <reads_2>
+  -U <single_reads> # Don not use Single Reads along with Paired end reads
+  -p Number of threads
+  -t trim file
+  -a adapter_file
+```
+
+```
+bash case_0_wrapper.sh -g ../sample_data/reference_genome.fa -A ../sample_data/reference.gtf -1 ../sample_data/sample_1_R1.fq.gz -2 ../sample_data/sample_1_R2.fq.gz -m PE -t ../sample_data/testfile_trimmomatic.txt -a ../sample_data/Adapters.fa -p 4
 ```
