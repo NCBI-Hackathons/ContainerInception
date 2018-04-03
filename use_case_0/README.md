@@ -56,7 +56,10 @@ fastqc output_forward_paired.fq.gz output_reverse_paired.fq.gz -o fastqc_out_tri
 
 ## Tophat2
 ```
-bowtie2-build ~/ContainerInception/sample_data/reference_genome.fa ~/ContainerInception/sample_data/reference_genome.fa
+bowtie2-build ~/ContainerInception/sample_data/reference_genome.fa ~/ContainerInception/sample_data/reference_genome
 
-tophat2 -p 4 -G ~/ContainerInception/sample_data/reference_gtf -o tophat_out ~/ContainerInception/sample_data/reference_genome.fa output_forward_paired.fq.gz output_reverse_paired.fq.gz 
+tophat2 -p 4 -G ~/ContainerInception/sample_data/reference.gtf -o tophat_out ~/ContainerInception/sample_data/reference_genome.fa output_forward_paired.fq.gz output_reverse_paired.fq.gz
+
+tophat2 -p 4 -G ~/ContainerInception/sample_data/reference.gtf -o tophat_out ~/ContainerInception/sample_data/reference_genome trimout/output_forward_paired.fq.gz trimout/output_reverse_paired.fq.gz output_reverse_paired.fq.gz 
+
 ```
