@@ -8,6 +8,8 @@ sudo `which cwl-runner` hs-build.cwl hs-build.yml
 sudo `which cwl-runner` hs-align.cwl hs-align.yml
 ```
 
+*note: If you do not require `sudo` to run Docker commands, substitute ``sudo `which cwl-runner` `` with `cwl-runner`.*
+
 # Dependencies
 
 Since this workflow uses CWL to run pre-made Docker containers, it has only two dependencies:
