@@ -4,6 +4,7 @@
 You build a pipeline on your Macbook Air and everything works well on a minimal data set. Your full blown experiment requires multiple cores and you need to move the pipeline to a powerful server that runs Ubuntu. Your software may fail to run on Ubuntu, and getting that old shell script to run on the new server is cumbersome. The following approach avoids this problem. 
 
 # Requirements
+- [Docker](https://docs.docker.com/install/)
 ```
 sudo docker build -t use_case_1:1.0 . 
 ```
