@@ -1,0 +1,15 @@
+mode: PE
+inputFile1:
+  class: File
+  path: sample_1_R1.fq.gz
+inputFile2:
+  class: File
+  path: sample_1_R2.fq.gz
+adaptersFile:
+  class: File
+  path: Adapters.fa
+params: "HEADCROP:7 ILLUMINACLIP:Adapters.fa:2:30:10 SLIDINGWINDOW:4:15 MINLEN:45"
+outputFile1P: sample_1.1P.fq.gz
+outputFile1U: sample_1.1U.fq.gz
+outputFile2P: sample_1.2P.fq.gz
+outputFile2U: sample_1.2U.fq.gz
