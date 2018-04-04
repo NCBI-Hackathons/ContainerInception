@@ -1,3 +1,10 @@
+
+# Use case 0: No containers and no CWL.
+
+![alt text](../generate_flowchart/flowChartImages/useCase0.png)
+
+----------
+
 # Installation instructions
 
 ## Fastqc
