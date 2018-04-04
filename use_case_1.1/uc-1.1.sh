@@ -6,17 +6,14 @@ run_workflow() {
 
     # run trimmomatic
     if [ ! -d trim_out ] ; then mkdir trim_out; fi
-    #sudo docker pull quay.io/biocontainers/trimmomatic:0.36--5
     sudo docker run -v ${PWD}:/data -w /data --entrypoint trimmomatic quay.io/biocontainers/trimmomatic:0.36--5 PE -threads 4 $1 $2 trim_out/output_forward_paired.fq.gz trim_out/output_forward_unpaired.fq.gz trim_out/output_reverse_paired.fq.gz trim_out/output_reverse_unpaired.fq.gz $cuts
 
     # run FastQC
     if [ ! -d fastqc_out ]; then mkdir -p fastqc_out/fastqc_out; fi
-    #sudo docker pull fjukstad/fastqc
     sudo docker run -v ${PWD}:/fastqc_out -w /fastqc_out --name fastqc fjukstad/fastqc:latest trim_out/trim_out/output_forward_paired.fq.gz trim_out/output_reverse_paired.fq.gz -o fastqc_out/fastqc_out
 
     # run hisat2
     if [ ! -d hisat_out ]; then mkdir hisat_out; fi
-    #sudo docker pull limesbonn/hisat2
     sudo docker run -v ${PWD}:/data -w /data --entrypoint hisat2-build limesbonn/hisat2:latest -f $4 "hisat_out/${4%.*}"
     sudo docker run -v ${PWD}:/data -w /data  --entrypoint hisat2 limesbonn/hisat2:latest -x hisat_out/reference_genome -1 trim_out/output_forward_paired.fq.gz -2 trim_out/output_reverse_paired.fq.gz -S hisat_out/output.sam
 
