@@ -1,0 +1,27 @@
+m1:
+  class: File
+  path: sample_1.1P.fq.gz
+m2:
+  class: File
+  path: sample_1.2P.fq.gz
+ref:
+  class: File
+  path: reference_genome.fa
+  secondaryFiles:
+    - class: File
+      path: reference_genome.fa.1.ht2
+    - class: File
+      path: reference_genome.fa.2.ht2
+    - class: File
+      path: reference_genome.fa.3.ht2
+    - class: File
+      path: reference_genome.fa.4.ht2
+    - class: File
+      path: reference_genome.fa.5.ht2
+    - class: File
+      path: reference_genome.fa.6.ht2
+    - class: File
+      path: reference_genome.fa.7.ht2
+    - class: File
+      path: reference_genome.fa.8.ht2
+sam: sample_1.sam

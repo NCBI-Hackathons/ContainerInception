@@ -1,0 +1,4 @@
+reference_in:
+  class: File
+  path: reference_genome.fa
+ht2_index_base: reference_genome.fa
