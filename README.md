@@ -20,7 +20,7 @@ The Docker philosophy states that every container should serve a single function
 ## Use case 2: Both container(s) and CWL [Click here!](use\_case\_2/README.md)
 Even with containerized individual tools one still needs to write a shell script to stitch them altogether. Instead, CWL requires explicitly defined inputs and outputs which in turn ensures standardization and reproducibility. Furthermore, CWL workflows can be compartmentalized in a (pulled/created) Docker image. 
 
-## Use case 3: Interacting workflows with CWL 
+## Use case 3: Interacting workflows with CWL [Click here!](use\_case\_3.2/README.md)
 - Two interacting workflows, that is, one workflow (current one) and two other workflows (SNP calling and differential expression analysis)
 - TODO
 
