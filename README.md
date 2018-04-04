@@ -17,10 +17,10 @@ You build a pipeline on your Macbook Air and everything works well on a minimal 
 ## Use case 1.1: Multiple Containers with no CWL [Click here!](use_case_1.1/README.md)
 The Docker philosophy states that every container should serve a single function. This makes it easier to update a single tool without worrying how that affects the overall project. For instance, say you want to redo your analysis, but this time you want to use a different read mapper, say `tophat2` instead of `hisat2`. Containerizing your individual tools allows both modification (grabbing a different Docker image) and portability between different operating systems. 
 
-## Use case 2: Both container(s) and CWL [Click here!](use\_case\_2/README.md)
+## Use case 2: Both container(s) and CWL [Click here!](use_case_2/README.md)
 Even with containerized individual tools one still needs to write a shell script to stitch them altogether. Instead, CWL requires explicitly defined inputs and outputs which in turn ensures standardization and reproducibility. Furthermore, CWL workflows can be compartmentalized in a (pulled/created) Docker image. 
 
-## Use case 3: Interacting workflows with CWL [Click here!](use\_case\_3.1/README.md)
+## Use case 3: Interacting workflows with CWL [Click here!](use_case_3.1/README.md)
 - Two interacting workflows, that is, one workflow (current one) and two other workflows (SNP calling and differential expression analysis)
 - TODO
 
