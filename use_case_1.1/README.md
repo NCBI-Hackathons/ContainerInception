@@ -1,5 +1,6 @@
-![alt text](../generate_flowchart/flowChartImages/useCase11.png)
 # Use Case 1.1
+
+![alt text](../generate_flowchart/flowChartImages/useCase11.png)
 
 ## Motivation
 The Docker philosophy states that every container should serve a single function. This makes it easier to update a single tool without worrying how that affects the overall project. For instance, say you want to redo your analysis, but this time you want to use a different read mapper, say `tophat2` instead of `hisat2`. Containerizing your individual tools allows both modification (grabbing a different Docker image) and portability between different operating systems. 
