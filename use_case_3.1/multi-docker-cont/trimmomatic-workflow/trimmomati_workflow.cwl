@@ -5,7 +5,7 @@ class: CommandLineTool
 
 hints:
   - class: DockerRequirement
-    dockerPull: achave11/trimmimatic_container 
+    dockerPull: achave11/trimmimatic_container:1.2
 
 inputs:
   - id : sample_data
@@ -21,7 +21,7 @@ outputs:
       type: array
       items: File
     outputBinding:
-      glob: "*paired.fq.fz"
+      glob: "outputs_from_pipeline.zip"
 
 # Change it to bash script
-baseCommand: ["/workspace/./run_trimmomatic.sh"]
+baseCommand: ["/bin/bash","/run_trimmomatic.sh"]

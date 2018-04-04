@@ -21,13 +21,12 @@ RUN add-apt-repository -y ppa:webupd8team/java \
 RUN apt-get install wget unzip python-pip git -y
 
 # Run provisioning data and preprocessing
-RUN mkdir workspace && cd workspace \
-    && wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip \
+RUN wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip \
     && unzip Trimmomatic-0.36.zip \
     && mv Trimmomatic-0.36/* .
 
-COPY Adapters.fa workspace/
-COPY run_trimmomatic.sh workspace/
+COPY ~/ContainerInception/sample_data/Adapters.fa .
+COPY run_trimmomatic.sh .
 
-RUN cd workspace && chmod u+x run_trimmomatic.sh
+RUN chmod u+x run_trimmomatic.sh
 
