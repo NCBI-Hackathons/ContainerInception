@@ -11,11 +11,9 @@
   % Place nodes
     \node [singleContainer] (trimmomatic) {trimmomatic};
     \node [singleContainer, below of=trimmomatic] (rightFastqc) {Fastqc};
-    \node [singleContainer, above of=trimmomatic] (leftFastqc) {Fastqc};
     \node [singleContainer, below of=rightFastqc] (hisat2) {hisat2};
     \node [method, below of=hisat2] (method) {bash script};
     % Draw edges
-    \path [arrow] (leftFastqc) -- (trimmomatic);
     \path [arrow] (trimmomatic) -- (rightFastqc);
     \path [arrow] (rightFastqc) -- (hisat2);
     \path [line, dashed] (hisat2)--(method);

@@ -11,11 +11,9 @@
     % Place nodes
     \node [container] (trimmomatic) {trimmomatic};
     \node [container, below of=trimmomatic] (rightFastqc) {Fastqc};
-    \node [container, above of=trimmomatic] (leftFastqc) {Fastqc};
     \node [container, below of=rightFastqc] (hisat2) {hisat2};
     \node [method, below of=hisat2] (method) {CWL};
     % Draw edges
-    \path [arrow] (leftFastqc) -- (trimmomatic);
     \path [arrow] (trimmomatic) -- (rightFastqc);
     \path [arrow] (rightFastqc) -- (hisat2);
     \path [line, dashed] (hisat2)--(method);
