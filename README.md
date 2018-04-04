@@ -11,10 +11,10 @@ By the end of this tutorial, the reader will have a working knowledge of packagi
 ## Use case 0: No containers and no CWL. [Click here for bad code. How not to do things!](use\_case\_0/README.md)
 This is probably how you're doing things right now. It is difficult to update the modules, it does not scale, and reproducibility is not maintained.
 
-## Use case 1: Single container with no CWL [Click here!](use\_case\_1/README.md)
+## Use case 1: Single container with no CWL [Click here!](use_case_1/README.md)
 You build a pipeline on your Macbook Air and everything works well on a minimal data set. Your full blown experiment requires multiple cores and you need to move the pipeline to a powerful server that runs Ubuntu. Your software may fail to run on Ubuntu, and getting that old shell script to run on the new server is cumbersome. The following approach avoids this problem. 
 
-## Use case 1.1: Multiple Containers with no CWL [Click here!](use\_case\_1.1/README.md)
+## Use case 1.1: Multiple Containers with no CWL [Click here!](use_case_1.1/README.md)
 The Docker philosophy states that every container should serve a single function. This makes it easier to update a single tool without worrying how that affects the overall project. For instance, say you want to redo your analysis, but this time you want to use a different read mapper, say `tophat2` instead of `hisat2`. Containerizing your individual tools allows both modification (grabbing a different Docker image) and portability between different operating systems. 
 
 ## Use case 2: Both container(s) and CWL [Click here!](use\_case\_2/README.md)
