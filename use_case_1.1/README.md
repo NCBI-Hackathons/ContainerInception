@@ -1,6 +1,7 @@
 ![alt text](../generate_flowchart/flowChartImages/useCase11.png)
 # Use Case 1.1
-This use case runs individual docker images for specific software packages in a combined workflow run through a bash script. Sometimes you have multiple containers but you have to string them together using bash script but it’s not easy stitch them and will mostly be hardcoded
+
+## Motivation: You want to redo your analysis as in use\_case\_1, but this time you want to use a different read mapper, say `tophat2` instead of `hisat2`. Individualizing your analysis containers allows both simple modification and portability between different operating systems. 
 
 # Requirements
 ```
