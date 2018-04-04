@@ -10,7 +10,7 @@ run_workflow() {
     # run FastQC
     if [ ! -d fastqc_out ]; then mkdir -p fastqc_out/fastqc_out; fi
     #sudo docker pull fjukstad/fastqc
-    sudo docker run -v ${PWD}:/fastqc_out -w /fastqc_out --name fastqc fjukstad/fastqc:latest $1 $2 -o fastqc_out/fastqc_out
+    sudo docker run -v ${PWD}:/fastqc_out -w /fastqc_out --name fastqc fjukstad/fastqc:latest trim_out/trim_out/output_forward_paired.fq.gz trim_out/output_reverse_paired.fq.gz -o fastqc_out/fastqc_out
 
     # run hisat2
     if [ ! -d hisat_out ]; then mkdir hisat_out; fi
@@ -41,7 +41,7 @@ usage () {
 #####################################
 
 # prune existing containers
-sudo docker system prune >2& 
+sudo docker system prune -f 
 
 # check input arguments
 if [ "$#" -eq 0 ]  || [ "$#" -ne 8 ]; then

@@ -2,7 +2,7 @@
 
 This use case runs individual docker images for specific software packages in a combined workflow run through a bash script. Sometimes you have multiple containers but you have to string them together using bash script but it’s not easy stitch them and will mostly be hardcoded
 
-![Settings Window](https://github.com/NCBI-Hackathons/ContainerInception/tree/master/use_case_1.1/docker_workflow_1.1.png)
+[!alt text](generate_flowchart/flowChartImages/MainFlowChart.png)
 
 # Usage
 ```
