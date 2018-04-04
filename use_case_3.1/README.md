@@ -2,3 +2,6 @@
 * Create docker container with tools to run the pipelines.
     * Define modularity layers
     * Launch/Run via CWLTool/Rabix
+
+### NOTES
+* To unzip file tar -zxvf `filename.zip`

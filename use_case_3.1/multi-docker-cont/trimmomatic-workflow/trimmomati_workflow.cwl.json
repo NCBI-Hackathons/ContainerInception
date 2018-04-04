@@ -1,11 +1,11 @@
 {
    "sample_data": [
 {
-    "path": "~/ContainerInception/sample_data/sample_1_R1.fq.gz",
+    "path": "../../../sample_data/sample_1_R1.fq.gz",
     "class": "File"
 },
 {
-    "path": "~/ContainerInception/sample_data/sample_2_R2.fq.gz",
+    "path": "../../../sample_data/sample_2_R2.fq.gz",
     "class": "File"
 }
     ]
