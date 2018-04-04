@@ -7,6 +7,12 @@
 
 # Installation instructions
 
+## Trimmomatic
+```
+wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip
+unzip Trimmomatic-0.36.zip
+``` 
+
 ## Fastqc
 ```
 wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.7.zip
@@ -15,12 +21,6 @@ cd FastQC
 chmod +x fastqc
 export PATH=/home/ubuntu/ContainerInception/softwares/FastQC/:$PATH
 ```
-
-## Trimmomatic
-```
-wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip
-unzip Trimmomatic-0.36.zip
-``` 
 
 ## Hisat2
 ```
