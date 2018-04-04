@@ -1,6 +1,13 @@
 # Use Case 1.1
 This use case runs individual docker images for specific software packages in a combined workflow run through a bash script. Sometimes you have multiple containers but you have to string them together using bash script but it’s not easy stitch them and will mostly be hardcoded
 
+# Requirements
+```
+sudo docker pull quay.io/biocontainers/trimmomatic:0.36--5
+sudo docker pull fjukstad/fastqc
+sudo docker pull limesbonn/hisat2
+```
+
 # Usage
 > Make sure that the input files are in your current working directory before running.
 ```

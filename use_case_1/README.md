@@ -1,6 +1,11 @@
 # Use Case 1
 This use case involves a Docker container and no workflow language like cwl - most users who use Docker fall under this category. When using containers you are mixing 0 and 1. Docker is supposed to be using one thing at a time. For example one of the authors uses 1,000 lines to create a docker. This can be difficult to swap in the wrapper script.
 
+# Requirements
+```
+sudo docker build -t use_case_1:1.0 . 
+```
+
 # Usage
 ```
 sudo docker run -v /home/ubuntu/ContainerInception/sample_data/:/data -w /data use_case_1:1.0 -h 
