@@ -5,14 +5,16 @@ class: CommandLineTool
 
 hints:
   - class: DockerRequirement
-    dockerPull: quay.io/biocontainers/trimmomatic:0.36--5 # Change this to personal container pulling this.
+    dockerPull: achave11/trimmimatic_container 
+
 inputs:
-  input_files:
-    type: array
-    items: File
-    default: sample_data
-    inputBinding:
-      position: 1
+  - id : input
+    input_files:
+      type: array
+      items: File
+      default: sample_data
+      inputBinding:
+        position: 1
 
 outputs:
   - id: output
