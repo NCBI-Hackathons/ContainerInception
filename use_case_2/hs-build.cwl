@@ -15,7 +15,7 @@ inputs:
     inputBinding:
       position: 1
 outputs:
-  - id: result
+  - id: build_result
     type:
       type: array
       items: File

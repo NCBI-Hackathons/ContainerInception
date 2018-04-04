@@ -37,7 +37,7 @@ inputs:
       position: 3
       prefix: -S
 outputs:
-  - id: result
+  - id: result_align
     type:
       type: array
       items: File
