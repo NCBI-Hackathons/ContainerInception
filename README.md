@@ -34,11 +34,11 @@ By the end of this tutorial, the reader will have a working knowledge of packagi
 To run our examples, your machine must meet the following requirements
 - Unix-like operating system
 - Python=2.7
-- Docker
-- trimmomatic=0.36
-- fastqc=0.11.7
-- hisat2=2.1.0
-- cwltool=1.0.20180330141240
+- [Docker](https://docs.docker.com/install/)
+- [cwltool=1.0.20180330141240](https://github.com/common-workflow-language/cwltool#install)
+- [trimmomatic=0.36](http://www.usadellab.org/cms/?page=trimmomatic)
+- [fastqc=0.11.7](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+- [hisat2=2.1.0](https://ccb.jhu.edu/software/hisat2/manual.shtml#obtaining-hisat2)
 
 ## Disclaimer
 TODO
