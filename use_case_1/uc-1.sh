@@ -2,10 +2,12 @@
 
 run_workflow() {
 
+    cuts=`cat $5 | grep -v \#`
+
     # run trimmomatic
     if [ ! -d trim_out ] ; then mkdir trim_out; fi
     #sudo docker pull quay.io/biocontainers/trimmomatic:0.36--5
-    java -jar /software/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 4 $1 $2 trim_out/output_forward_paired.fq.gz trim_out/output_forward_unpaired.fq.gz trim_out/output_reverse_paired.fq.gz trim_out/output_reverse_unpaired.fq.gz HEADCROP:7 "ILLUMINACLIP:$3:2:30:10" SLIDINGWINDOW:4:15 MINLEN:45
+    java -jar /software/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 4 $1 $2 trim_out/output_forward_paired.fq.gz trim_out/output_forward_unpaired.fq.gz trim_out/output_reverse_paired.fq.gz trim_out/output_reverse_unpaired.fq.gz $cuts
 
     # run FastQC
     if [ ! -d fastqc_out ]; then mkdir -p fastqc_out/fastqc_out; fi
@@ -14,8 +16,8 @@ run_workflow() {
 
     # run hisat2
     if [ ! -d hisat_out ]; then mkdir hisat_out; fi
-    hisat2-build limesbonn/hisat2:latest -f $4 "hisat_out/${4%.*}"
-    hisat2 limesbonn/hisat2:latest -x hisat_out/reference_genome -1 trim_out/output_forward_paired.fq.gz -2 trim_out/output_reverse_paired.fq.gz -S hisat_out/output.sam
+    hisat2-build -f $4 "hisat_out/${4%.*}"
+    hisat2 -x hisat_out/reference_genome -1 trim_out/output_forward_paired.fq.gz -2 trim_out/output_reverse_paired.fq.gz -S hisat_out/output.sam
 
 }
 
@@ -23,14 +25,14 @@ run_workflow() {
 usage () {
 
     echo ""
-    echo "Usage: ./uc-1.1.sh -r1 <READ1.fastq.gz> -r2 <READ2.fastq.gz> -a <adapters.fa> -g <ref.fa>"
+    echo "Usage: ./uc-1.1.sh -r1 <READ1.fastq.gz> -r2 <READ2.fastq.gz> -a <adapters.fa> -t <trim_file> -g <ref.fa> "
     echo ""
     echo "Options:"
     echo -e "-r1 \t --read1 \t a read1 gzipped FASTQ file"
     echo -e "-r2 \t --read2 \t a read2 gzipped FASTQ file"
     echo -e "-a \t --adapters \t an adapters FASTA file"
+    echo -e "-t \t --trimfile \t a trim file for trimmomatic"
     echo -e "-g \t --genome-ref \t a reference genome FASTA file"
-
 }
 
 #####################################
@@ -39,13 +41,10 @@ usage () {
 #
 #####################################
 
-# prune existing containers
-sudo docker system prune -f 
-
 # check input arguments
-if [ "$#" -eq 0 ]  || [ "$#" -ne 8 ]; then
+if [ "$#" -eq 0 ]  || [ "$#" -ne 10 ]; then
 
-    usage; exit 1;
+   usage; exit 1;
 
 fi
 
@@ -64,6 +63,8 @@ while [ "$1" != "" ]; do
            
         -a | --adapters) adapters=$2;;
 
+        -t | --trimfile) trimfile=$2;;
+
         -g | --genome-ref) reference=$2;;
  
     esac
@@ -75,5 +76,5 @@ done
 #   workflow execution
 #
 #########################
-run_workflow $read1 $read2 $adapters $reference
+run_workflow $read1 $read2 $adapters $reference $trimfile
 
