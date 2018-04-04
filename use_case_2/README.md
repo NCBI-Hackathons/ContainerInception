@@ -1,4 +1,7 @@
-# Running the demo workflow using Common Workflow Language and Docker containers
+# Use case 2: Running the demo workflow using Common Workflow Language (CWL) and Docker containers
+
+## Motivation
+Even with containerized individual tools one still needs to write a shell script to stitch them altogether. Instead, CWL requires explicitly defined inputs and outputs which in turn ensures standardization and reproducibility. Furthermore, CWL workflows can be compartmentalized in a (pulled/created) Docker image. 
 
 With the `.cwl`/`.yml` files in the same directory as the sample input fastq files and the reference sequence, run the following:
 
