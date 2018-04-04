@@ -1,7 +1,6 @@
 # ContainerInception
-![alt text](generate_flowchart/flowChartImages/stackedPlatesChart.png)
-
 Step-by-step use cases of containers and workflows to package reproducible bioinformatics softwares.
+![alt text](generate_flowchart/flowChartImages/stackedPlatesChart.png)
 
 ## Purpose
 By the end of this tutorial, the reader will have a working knowledge of packaging reusable workflows. The example in our use cases involve a typical quality control and mapping of RNA-seq data of Sorghum bicolor. 
