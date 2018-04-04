@@ -8,13 +8,11 @@ hints:
     dockerPull: achave11/trimmimatic_container 
 
 inputs:
-  - id : input
-    input_files:
-      type: array
-      items: File
-      default: sample_data
-      inputBinding:
-        position: 1
+  - id : sample_data
+    type: array
+    items: File
+    inputBinding:
+      position: 1
 
 outputs:
   - id: output
