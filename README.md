@@ -3,6 +3,8 @@
 
 By the end of this tutorial, the reader will have a working knowledge of packaging reusable workflows. The example in our use cases involve a typical quality control and mapping of RNA-seq data of Sorghum bicolor. 
 
+![alt text](generate_flowchart/flowChartImages/MainFlowChart.png)
+
 ## Use case 0: No containers and no CWL. [Click here!](use\_case\_0/README.md)
 
 ![alt text](generate_flowchart/flowChartImages/useCase0.png)
