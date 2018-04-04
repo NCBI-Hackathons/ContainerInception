@@ -1,4 +1,4 @@
-# ContainerInception
+# Gerber: Generalized Easy Reproducible Bioinformatics Environment Wrapper
 Step-by-step use cases of containers and workflows to package reproducible bioinformatics softwares.
 ![alt text](generate_flowchart/flowChartImages/stackedPlatesChart.png)
 
