@@ -3,13 +3,20 @@
 run_workflow() {
 
     # run trimmomatic
-    #java -jar ~/ContainerInception/softwares/Trimmomatic-0.36/trimmomatic-0.36.jar PE -phred33 sample_1_R1.fq.gz sample_1_R2.fq.gz output_R1_paired.fq.gz output_R1_unpaired.fq.gz output_R2_paired.fq.gz output_R2_unpaired.fq.gz ILLUMINACLIP:../sample_data/Adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
-
+    if [ ! -d trim_out ] ; then mkdir trim_out; fi
+    #sudo docker pull quay.io/biocontainers/trimmomatic:0.36--5
+    sudo docker run -v ${PWD}:/data -w /data --entrypoint trimmomatic quay.io/biocontainers/trimmomatic:0.36--5 PE -threads 4 $1 $2 trim_out/output_forward_paired.fq.gz trim_out/output_forward_unpaired.fq.gz trim_out/output_reverse_paired.fq.gz trim_out/output_reverse_unpaired.fq.gz HEADCROP:7 "ILLUMINACLIP:$3:2:30:10" SLIDINGWINDOW:4:15 MINLEN:45
 
     # run FastQC
-    mkdir -p fastqc_out/fastqc_out
-    sudo docker pull fjukstad/fastqc
+    if [ ! -d fastqc_out ]; then mkdir -p fastqc_out/fastqc_out; fi
+    #sudo docker pull fjukstad/fastqc
     sudo docker run -v ${PWD}:/fastqc_out -w /fastqc_out --name fastqc fjukstad/fastqc:latest $1 $2 -o fastqc_out/fastqc_out
+
+    # run hisat2
+    if [ ! -d hisat_out ]; then mkdir hisat_out; fi
+    #sudo docker pull limesbonn/hisat2
+    sudo docker run -v ${PWD}:/data -w /data --entrypoint hisat2-build limesbonn/hisat2:latest -f $4 "hisat_out/${4%.*}"
+    sudo docker run -v ${PWD}:/data -w /data  --entrypoint hisat2 limesbonn/hisat2:latest -x hisat_out/reference_genome -1 trim_out/output_forward_paired.fq.gz -2 trim_out/output_reverse_paired.fq.gz -S hisat_out/output.sam
 
 }
 
@@ -17,11 +24,13 @@ run_workflow() {
 usage () {
 
     echo ""
-    echo "Usage: ./uc-1.1.sh -r1 <READ1.fastq.gz> -r2 <READ2.fastq.gz>"
+    echo "Usage: ./uc-1.1.sh -r1 <READ1.fastq.gz> -r2 <READ2.fastq.gz> -a <adapters.fa> -g <ref.fa>"
     echo ""
     echo "Options:"
     echo -e "-r1 \t --read1 \t a read1 gzipped FASTQ file"
     echo -e "-r2 \t --read2 \t a read2 gzipped FASTQ file"
+    echo -e "-a \t --adapters \t an adapters FASTA file"
+    echo -e "-g \t --genome-ref \t a reference genome FASTA file"
 
 }
 
@@ -31,8 +40,11 @@ usage () {
 #
 #####################################
 
+# prune existing containers
+sudo docker system prune >2& 
+
 # check input arguments
-if [ "$#" -eq 0 ]  || [ "$#" -ne 4 ]; then
+if [ "$#" -eq 0 ]  || [ "$#" -ne 8 ]; then
 
     usage; exit 1;
 
@@ -50,7 +62,11 @@ while [ "$1" != "" ]; do
         -r1 | --read1) read1=$2;; 
             
         -r2 | --read2) read2=$2;;
-            
+           
+        -a | --adapters) adapters=$2;;
+
+        -g | --genome-ref) reference=$2;;
+ 
     esac
     shift
 done
@@ -60,5 +76,5 @@ done
 #   workflow execution
 #
 #########################
-run_workflow $read1 $read2
+run_workflow $read1 $read2 $adapters $reference
 
