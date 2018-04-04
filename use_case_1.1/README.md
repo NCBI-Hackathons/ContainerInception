@@ -17,5 +17,5 @@ Options:
 
 # Example:
 ```
-../use_case_1/use_case_1.1/uc-1.1.sh -r1 sample_1_R1.fq.gz -r2 sample_1_R2.fq.gz -a Adapters.fa -g reference_genome.fa -ttestfile_trimmomatic.txt
+./uc-1.1.sh -r1 sample_1_R1.fq.gz -r2 sample_1_R2.fq.gz -a Adapters.fa -g reference_genome.fa -t testfile_trimmomatic.txt
 ```
