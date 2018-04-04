@@ -5,7 +5,7 @@ By the end of this tutorial, the reader will have a working knowledge of packagi
 
 ![alt text](generate_flowchart/flowChartImages/MainFlowChart.png)
 
-## Use case 0: No containers and no CWL. [Click here!](use\_case\_0/README.md)
+## Use case 0: No containers and no CWL. [Click here on how to run it!](use\_case\_0/README.md)
 
 ![alt text](generate_flowchart/flowChartImages/useCase0.png)
 
@@ -13,7 +13,7 @@ By the end of this tutorial, the reader will have a working knowledge of packagi
 - It is difficult to update the modules, it does not scale, and reproducibility is not maintained. 
 - Some people run them as bash script while others run them as individual software.
 
-## Use case 1: Container(s) with no CWL [Click here!](use\_case\_1/README.md)
+## Use case 1: Container(s) with no CWL [Click here on how to run it!](use\_case\_1/README.md)
 
 ![alt text](generate_flowchart/flowChartImages/useCase11.png)
 
@@ -22,7 +22,7 @@ By the end of this tutorial, the reader will have a working knowledge of packagi
 - Difficult to swap in the wrapper script.
 - Sometimes you have multiple containers but you have to string them together using bash script but it’s not easy stitch them and will mostly be hardcoded
 
-## Use case 2: Both container(s) and CWL [Click here!](use\_case\_2/README.md)
+## Use case 2: Both container(s) and CWL [Click here on how to run it!](use\_case\_2/README.md)
 
 ![alt text](generate_flowchart/flowChartImages/useCase2.png)
 
