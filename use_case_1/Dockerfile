@@ -24,7 +24,3 @@ RUN wget ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-2.0.5-Linux_
 
 ENV PATH /software/FastQC/:$PATH
 ENV PATH /software/hisat2-2.0.5/:$PATH
-
-
-
-      
