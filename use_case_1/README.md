@@ -1,5 +1,7 @@
-# Use Case 1
-- This use case involves a single Docker container and no workflow language like cwl - most users who use Docker fall under this category. 
+# Use Case 1 
+
+## Motivation
+Motivation: A couple of months ago you did an experiment involving read mapping as in use\_case\_0. However, your computing environment changed, say you now work on Mac OS instead of Ubuntu, and you use `tophat2` instead of `hisat2`. The shell script in use\_case\_0 may fail to run on your new Mac, and getting that old shell script to run on your new machine is cumbersome. The following approach avoids this problem. 
 
 # Requirements
 ```
