@@ -74,21 +74,21 @@ cp $referencegenome .
 
 new=$(basename $referencegenome ".fa")
 
-bowtie2-build reference_genome.fa $new
+hisat2-build $referencegenome $new -p $num_threads
 
 cp $adapter_file .
 
 if [ $mode == PE ]; then
        	     
 	     java -jar -Xmx1024m ../softwares/Trimmomatic-0.36/trimmomatic-0.36.jar $mode -threads $num_threads $left_reads $right_reads trimout/output_forward_paired.fq.gz trimout/output_forward_unpaired.fq.gz trimout/output_reverse_paired.fq.gz trimout/output_reverse_unpaired.fq.gz $cuts 
-         fastqc trimout/output_forward_paired.fq.gz trimout/output_reverse_paired.fq.gz -o fastqc_out_trim
-         tophat2 -p $num_threads -G $referenceannotation -o tophat_out $new trimout/output_forward_paired.fq.gz trimout/output_reverse_paired.fq.gz
-         exit
+       fastqc trimout/output_forward_paired.fq.gz trimout/output_reverse_paired.fq.gz -o fastqc_out_trim
+       hisat2 -x $new -1 trimout/output_forward_paired.fq.gz -2 trimout/output_reverse_paired.fq.gz -p $num_threads -S output.sam
+       exit
 
 elif [ $mode == SE ]; then
         
-        java -jar -Xmx1024m ../softwares/Trimmomatic-0.36/trimmomatic-0.36.jar $mode -threads $num_threads $single_reads trimout/output.fq.gz $cuts        
-        fastqc trimout/output.fq.gz -o fastqc_out_trim
-        tophat2 -p $num_threads -G $referenceannotation -o tophat_out $new trimout/output.fq.gz
-        exit
+      java -jar -Xmx1024m ../softwares/Trimmomatic-0.36/trimmomatic-0.36.jar $mode -threads $num_threads $single_reads trimout/output.fq.gz $cuts        
+      fastqc trimout/output.fq.gz -o fastqc_out_trim
+      hisat2 -x $new -U trimout/output.fq.gz -p $num_threads -S output.sam
+      exit
 fi

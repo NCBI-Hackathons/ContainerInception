@@ -15,31 +15,14 @@ wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-
 unzip Trimmomatic-0.36.zip
 ``` 
 
-## Bowtie2
+## Hisat2
 ```
-wget https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.3.4.1/bowtie2-2.3.4.1-linux-x86_64.zip
-export PATH=/home/ubuntu/ContainerInception/softwares/bowtie2-2.3.4.1-linux-x86_64/:$PATH
-```
-
-## Tophat2
-```
-wget https://ccb.jhu.edu/software/tophat/downloads/tophat-2.1.1.Linux_x86_64.tar.gz
-tar xvf tophat-2.1.1.Linux_x86_64.tar.gz 
-export PATH=/home/ubuntu/ContainerInception/softwares/tophat-2.1.1.Linux_x86_64/:$PATH
-```
-
-# Python
-```
-sudo apt-get install -y python-pip
+wget ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-2.1.0-Linux_x86_64.zip
+unzip hisat2-2.1.0-Linux_x86_64.zip
+export PATH=/home/ubuntu/ContainerInception/softwares/hisat2-2.1.0/:$PATH
 ```
 
 # Running commands
-
-## Fastqc
-```
-mkdir fastqc_out
-fastqc ~/ContainerInception/sample_data/sample_1_R1.fq.gz ~/ContainerInception/sample_data/sample_1_R2.fq.gz -o fastqc_out
-```
 
 ## Trimmomatic
 ```
@@ -54,13 +37,13 @@ mkdir fastqc_out_trim
 fastqc output_forward_paired.fq.gz output_reverse_paired.fq.gz -o fastqc_out_trim
 ```
 
-## Tophat2
+## Hisat2
 ```
-bowtie2-build ~/ContainerInception/sample_data/reference_genome.fa ~/ContainerInception/sample_data/reference_genome
+hisat2-build reference_genome.fa reference_genome -p 4
 
-tophat2 -p 4 -G ~/ContainerInception/sample_data/reference.gtf -o tophat_out ~/ContainerInception/sample_data/reference_genome.fa output_forward_paired.fq.gz output_reverse_paired.fq.gz
+hisat2 -x reference_genome -1 ../sample_data/sample_1_R1.fq.gz -2 ../sample_data/sample_1_R2.fq.gz -p 4 > test.sam
 
-tophat2 -p 4 -G ~/ContainerInception/sample_data/reference.gtf -o tophat_out ~/ContainerInception/sample_data/reference_genome trimout/output_forward_paired.fq.gz trimout/output_reverse_paired.fq.gz output_reverse_paired.fq.gz 
+hisat2 -x reference_genome -U ../sample_data/sample_1_R1.fq.gz -p 4 > test.sam
 ```
 
 # Running as wrapper script
@@ -84,5 +67,9 @@ Usage : sh case_0_wrapper.sh -g <reference_genome> -A <reference_annotation> {-1
 ```
 
 ```
-bash case_0_wrapper.sh -g ../sample_data/reference_genome.fa -A ../sample_data/reference.gtf -1 ../sample_data/sample_1_R1.fq.gz -2 ../sample_data/sample_1_R2.fq.gz -m PE -t ../sample_data/testfile_trimmomatic.txt -a ../sample_data/Adapters.fa -p 4
+# PE
+bash case_0_wrapper.sh -g ../sample_data/reference_genome.fa -1 ../sample_data/sample_1_R1.fq.gz -2 ../sample_data/sample_1_R2.fq.gz -m PE -t ../sample_data/testfile_trimmomatic.txt -a ../sample_data/Adapters.fa -p 4
+
+# SE
+bash case_0_wrapper.sh -g ../sample_data/reference_genome.fa -U ../sample_data/sample_1_R1.fq.gz -m SE -t ../sample_data/testfile_trimmomatic.txt -a ../sample_data/Adapters.fa -p 4
 ```
