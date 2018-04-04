@@ -1,5 +1,5 @@
 {
-   "delly_data": [
+   "sample_data": [
 {
     "path": "./sample_data/sample_1_R1.fq.gz",
     "class": "File"

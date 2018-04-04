@@ -9,8 +9,9 @@ hints:
 
 inputs:
   - id : sample_data
-    type: array
-    items: File
+    type: 
+      type : array
+      items: File
     inputBinding:
       position: 1
 
