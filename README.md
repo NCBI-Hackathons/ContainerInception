@@ -5,8 +5,8 @@ Step-by-step use cases of containers and workflows to package reproducible bioin
 By the end of this tutorial, the reader will have a working knowledge of packaging reusable workflows. The example in our use cases involve a typical quality control and mapping of RNA-seq data of Sorghum bicolor. 
 
 ## Workflow
-![alt text](generate_flowchart/flowChartImages/stackedPlatesChart.png)
 ![alt text](generate_flowchart/flowChartImages/MainFlowChart.png)
+![alt text](generate_flowchart/flowChartImages/stackedPlatesChart.png)
 
 ## Use case 0: No containers and no CWL. [Click here on how to run it!](use\_case\_0/README.md)
 - Most users fall in this categories. 
