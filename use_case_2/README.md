@@ -15,3 +15,8 @@ Since this workflow uses CWL to run pre-made Docker containers, it has only two 
 - [Docker](https://docs.docker.com/install/)
 - [cwltool](https://github.com/common-workflow-language/cwltool#install)
 
+# Customization
+
+The `.yml` files are used to define the parameters used to run each step of the pipeline. The `.cwl` files map these parameters to the tools used.
+
+The `.yml` files can be modified to run the pipeline with different files, etc.
