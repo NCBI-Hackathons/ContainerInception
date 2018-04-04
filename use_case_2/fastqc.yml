@@ -1,0 +1,5 @@
+fastqFiles: 
+  - class: File
+    path: sample_1.1P.fq.gz
+  - class: File
+    path: sample_1.2P.fq.gz
