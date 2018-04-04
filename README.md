@@ -8,7 +8,7 @@ By the end of this tutorial, the reader will have a working knowledge of packagi
 ## Workflow
 ![alt text](generate_flowchart/flowChartImages/MainFlowChart.png)
 
-## Use case 0: No containers and no CWL. [Click here for bad code. How not to do things!](use\_case\_0/README.md)
+## Use case 0: No containers and no CWL. [Click here for bad code. How not to do things!](use_case_0/README.md)
 This is probably how you're doing things right now. It is difficult to update the modules, it does not scale, and reproducibility is not maintained.
 
 ## Use case 1: Single container with no CWL [Click here!](use_case_1/README.md)
