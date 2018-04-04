@@ -1,7 +1,8 @@
 ![alt text](../generate_flowchart/flowChartImages/useCase11.png)
 # Use Case 1.1
 
-## Motivation: You want to redo your analysis as in use\_case\_1, but this time you want to use a different read mapper, say `tophat2` instead of `hisat2`. Individualizing your analysis containers allows both simple modification and portability between different operating systems. 
+## Motivation
+You want to redo your analysis as in use\_case\_1, but this time you want to use a different read mapper, say `tophat2` instead of `hisat2`. Containerizing your individual tools allows both simple modification and portability between different operating systems. 
 
 # Requirements
 ```
