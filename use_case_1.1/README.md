@@ -1,3 +1,4 @@
+![alt text](../generate_flowchart/flowChartImages/useCase11.png)
 # Use Case 1.1
 This use case runs individual docker images for specific software packages in a combined workflow run through a bash script. Sometimes you have multiple containers but you have to string them together using bash script but it’s not easy stitch them and will mostly be hardcoded
 
