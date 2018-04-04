@@ -1,23 +1,22 @@
 # ContainerInception
+![alt text](generate_flowchart/flowChartImages/MainFlowChart.png)
+
 Step-by-step use cases of containers and workflows to package reproducible bioinformatics softwares.
 
 ## Purpose
 By the end of this tutorial, the reader will have a working knowledge of packaging reusable workflows. The example in our use cases involve a typical quality control and mapping of RNA-seq data of Sorghum bicolor. 
 
 ## Workflow
-![alt text](generate_flowchart/flowChartImages/MainFlowChart.png)
 ![alt text](generate_flowchart/flowChartImages/stackedPlatesChart.png)
 
-## Use case 0: No containers and no CWL. [Click here on how to run it!](use\_case\_0/README.md)
-- Most users fall in this categories. 
-- It is difficult to update the modules, it does not scale, and reproducibility is not maintained. 
-- Some people run them as bash script while others run them as individual software.
+## Use case 0: No containers and no CWL. [Click here for bad code. How not to do things!](use\_case\_0/README.md)
+It is difficult to update the modules, it does not scale, and reproducibility is not maintained.
 
-## Use case 1: Container(s) with no CWL [Click here on how to run it!](use\_case\_1/README.md)
-- Docker users fall under this category.
-- Docker is supposed to be using one thing at a time. For example one of the authors uses 1,000 lines to create a docker. 
-- Difficult to swap in the wrapper script.
-- Sometimes you have multiple containers but you have to string them together using bash script but it’s not easy stitch them and will mostly be hardcoded
+## Use case 1: Single container with no CWL [Click here on how to run it!](use\_case\_1/README.md)
+You build a pipeline on your Macbook Air and everything works well on a minimal data set. Your full blown experiment requires multiple cores and you need to move the pipeline to a powerful server that runs Ubuntu. Your software may fail to run on Ubuntu, and getting that old shell script to run on the new server is cumbersome. The following approach avoids this problem. 
+
+## Use case 1.1: Multiple Containers with no CWL [Click here on how to run it!](use\_case\_1.1/README.md)
+The Docker philosophy states that every container should serve a single function. This makes it easier to update a single tool without worrying how that affects the overall project. For instance, say you want to redo your analysis, but this time you want to use a different read mapper, say `tophat2` instead of `hisat2`. Containerizing your individual tools allows both modification (grabbing a different Docker image) and portability between different operating systems. 
 
 ## Use case 2: Both container(s) and CWL [Click here on how to run it!](use\_case\_2/README.md)
 - It’s difficult to write them or no clear standard and everyone uses cwl. 
