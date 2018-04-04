@@ -18,16 +18,16 @@ RUN add-apt-repository -y ppa:webupd8team/java \
     && echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections \
     && apt-get install -y oracle-java8-installer
 
-RUN apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common
-
-# Set Env variables
+RUN apt-get install wget unzip python-pip git -y
 
 # Run provisioning data and preprocessing
+RUN mkdir workspace && cd workspace \
+    && wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip \
+    && unzip Trimmomatic-0.36.zip \
+    && mv Trimmomatic-0.36/* .
 
-# Switch to Ubuntu user
+COPY Adapters.fa workspace/
+COPY run_trimmomatic.sh workspace/
 
-# Execute bash script.
+RUN cd workspace && chmod u+x run_trimmomatic.sh
+

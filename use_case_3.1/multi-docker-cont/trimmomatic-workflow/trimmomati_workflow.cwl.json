@@ -1,0 +1,13 @@
+{
+   "delly_data": [
+{
+    "path": "./sample_data/sample_1_R1.fq.gz",
+    "class": "File"
+},
+{
+    "path": "./sample_data/sample_2_R2.fq.gz",
+    "class": "File"
+}
+    ]
+ 
+}
