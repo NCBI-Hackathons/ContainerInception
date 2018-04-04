@@ -13,5 +13,5 @@ sudo `which cwl-runner` hs-align.cwl hs-align.yml
 Since this workflow uses CWL to run pre-made Docker containers, it has only two dependencies:
 
 - [Docker](https://docs.docker.com/install/)
-- [cwl-runner](https://github.com/common-workflow-language/cwltool#install)
+- [cwltool](https://github.com/common-workflow-language/cwltool#install)
 
