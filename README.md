@@ -1,14 +1,14 @@
 # ContainerInception
-Step-by-step Use Cases Of Containers And Workflows To Package Reproducible Bioinformatics Softwares
+Step-by-step use cases of containers and workflows to package reproducible bioinformatics softwares.
 
-## Outcomes
-
+## Purpose
+TODO
 By the end of this tutorial, the reader will have a working knowledge of packaging reusable workflows. The example in our use cases involve a typical quality control and mapping of RNA-seq data of Sorghum bicolor. 
 
+## Workflow
 ![alt text](generate_flowchart/flowChartImages/MainFlowChart.png)
 
 ## Use case 0: No containers and no CWL. [Click here on how to run it!](use\_case\_0/README.md)
-
 ![alt text](generate_flowchart/flowChartImages/useCase0.png)
 
 - Most users fall in this categories. 
@@ -16,7 +16,6 @@ By the end of this tutorial, the reader will have a working knowledge of packagi
 - Some people run them as bash script while others run them as individual software.
 
 ## Use case 1: Container(s) with no CWL [Click here on how to run it!](use\_case\_1/README.md)
-
 ![alt text](generate_flowchart/flowChartImages/useCase11.png)
 
 - Docker users fall under this category.
@@ -25,7 +24,6 @@ By the end of this tutorial, the reader will have a working knowledge of packagi
 - Sometimes you have multiple containers but you have to string them together using bash script but it’s not easy stitch them and will mostly be hardcoded
 
 ## Use case 2: Both container(s) and CWL [Click here on how to run it!](use\_case\_2/README.md)
-
 ![alt text](generate_flowchart/flowChartImages/useCase2.png)
 
 - It’s difficult to write them or no clear standard and everyone uses cwl. 
@@ -38,21 +36,15 @@ By the end of this tutorial, the reader will have a working knowledge of packagi
 - Two interacting workflows, that is, one workflow (current one) and two other workflows (SNP calling and differential expression analysis)
 - TODO
 
-### Requirements
-Docker
-cwltool=1.0.20180330141240
+### System Requirements
+To run our examples, your machine must meet the following requirements
+- Unix-like operating system
+- Python=2.7
+- Docker
+- trimmomatic=0.36
+- fastqc=0.11.7
+- hisat2=2.1.0
+- cwltool=1.0.20180330141240
 
-### To run the workflow
-cwltool --non-strict pipeline_name.cwl pipeline_name.cwl.json
-
-### To modify modules
-Edit pipeline_name.cwl to describe specific steps (in our case pipelines) and the json that pertains to the module. ( NOTE: Ideally this should be done via rabix, and a more simple experience should be available to the user)
-
-## System requirements
-To run the examples in our tutorial, you machine must meet the following requirements
-python=2.7
-GNU bash=
-fastqc=0.11.7
-trimmomatic=0.36
-bowtie=2.3.4.1
-tophat=2.1.1
+## Disclaimer
+TODO
