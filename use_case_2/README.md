@@ -1,3 +1,5 @@
+<a href="../README.md"><img src="../generate_flowchart/flowChartImages/GerberLogo.png" alt="logo" width="100"></a>
+
 # Use case 2: Running the demo workflow using Common Workflow Language (CWL) and Docker containers
 
 ## Motivation: Flexibility
