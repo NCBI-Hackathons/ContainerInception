@@ -1,4 +1,4 @@
-## TODO : Modulularize containers
+## TODO : Modularize containers
 
 ![alt text](../generate_flowchart/flowChartImages/modular_containers.png)
 
