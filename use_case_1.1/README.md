@@ -1,4 +1,4 @@
-<a href="../README.md"><img src="../generate_flowchart/flowChartImages/GerberLogo.png" alt="logo" width="100"></a>
+[![logo](../generate_flowchart/flowChartImages/GerberLogo.w100.png)](../README.md)
 
 # Use Case 1.1
 
