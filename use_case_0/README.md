@@ -1,4 +1,4 @@
-[![logo](../generate_flowchart/flowChartImages/GerberLogo.w100.png)](../README.md)
+[![logo](../generate_flowchart/flowChartImages/GerberLogo.w100.png)](/README.md)
 
 # Use case 0: No containers and no CWL.
 
