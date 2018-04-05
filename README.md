@@ -1,16 +1,16 @@
 ![alt text](generate_flowchart/flowChartImages/GerberLogo.png)
 # Gerber: Generalized Easy Reproducible Bioinformatics Environment wRapper
-Step-by-step use cases of containers and workflows to package reproducible bioinformatics softwares.
+Step-by-step use cases of containers and workflows towards reproducible bioinformatics.
 ![alt text](generate_flowchart/flowChartImages/stackedPlatesChart.png)
 
-## Purpose
-By the end of this tutorial, the reader will have a working knowledge of packaging reusable workflows. The example in our use cases involve a typical quality control and mapping of RNA-seq data of Sorghum bicolor. 
+## Goal
+By the end of this tutorial, the researcher will have a working knowledge of generating reproducible bioinformatics workflows. The demo example in our use case involve a typical quality control and mapping pipeline of RNA-seq data of Sorghum bicolor. 
 
 ## Workflow
 ![alt text](generate_flowchart/flowChartImages/MainFlowChart.png)
 
 ## Use case 0: No containers and no CWL. [Click here for bad code. How not to do things!](use_case_0/README.md)
-This is probably how you're doing things right now. It is difficult to update the modules, it does not scale, and reproducibility is not maintained.
+This is probably how most of the researchers are running bioinformatics data analysis currently. However it is difficult to update the modules, it does not scale, and reproducibility is not maintained.
 
 ## Use case 1: Single container with no CWL [Click here!](use_case_1/README.md)
 You build a pipeline on your Macbook Air and everything works well on a minimal data set. Your full blown experiment requires multiple cores and you need to move the pipeline to a powerful server that runs Ubuntu. Your software may fail to run on Ubuntu, and getting that old shell script to run on the new server is cumbersome. The following approach avoids this problem. 
