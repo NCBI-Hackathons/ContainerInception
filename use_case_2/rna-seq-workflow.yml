@@ -1,0 +1,44 @@
+mod: PE
+input1:
+  class: File
+  path: sample_1_R1.fq.gz
+input2:
+  class: File
+  path: sample_1_R2.fq.gz
+adapters_File:
+  class: File
+  path: Adapters.fa
+parameters: "HEADCROP:7 ILLUMINACLIP:Adapters.fa:2:30:10 SLIDINGWINDOW:4:15 MINLEN:45"
+outFile1P: sample_1.1P.fq.gz
+outFile1U: sample_1.1U.fq.gz
+outFile2P: sample_1.2P.fq.gz
+outFile2U: sample_1.2U.fq.gz
+
+fqfiles: 
+  - class: File
+    path: sample_1.1P.fq.gz
+  - class: File
+    path: sample_1.2P.fq.gz
+
+ref_in:
+  class: File
+  path: reference_genome.fa
+
+index_base: reference_genome.fa
+
+ 
+
+# first_read:
+#   class: File
+#   path: sample_1.1P.fq.gz
+# second_read:
+#   class: File
+#   path: sample_1.2P.fq.gz
+# reference:
+#   class: File
+#   path: reference_genome.fa
+
+# sam_file: sample_1.sam
+
+
+
