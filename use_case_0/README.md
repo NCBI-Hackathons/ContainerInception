@@ -1,3 +1,5 @@
+<a href="../README.md"><img src="../generate_flowchart/flowChartImages/GerberLogo.png" alt="logo" width="100"></a>
+
 # Use case 0: No containers and no CWL.
 
 ![alt text](../generate_flowchart/flowChartImages/useCase0.png)
@@ -10,12 +12,12 @@
 ```
 wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip
 unzip Trimmomatic-0.36.zip
-``` 
+```
 
 ## Fastqc
 ```
 wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.7.zip
-unzip fastqc_v0.11.7.zip 
+unzip fastqc_v0.11.7.zip
 cd FastQC
 chmod +x fastqc
 export PATH=/home/ubuntu/ContainerInception/softwares/FastQC/:$PATH
@@ -59,7 +61,7 @@ bash case_0_wrapper.sh -h
 
 Usage : sh case_0_wrapper.sh -g <reference_genome> -A <reference_annotation> {-1 <left_reads> -2 <right_reads> | -U <single_reads> } -p num_threads -m mode -t trim_file -a adapter_file
 
-  
+
   ###### Command line options ##########
   -g <reference genome fasta file>
   -A <reference genome annotation>
