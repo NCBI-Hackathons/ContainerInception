@@ -1,5 +1,5 @@
 ![alt text](generate_flowchart/flowChartImages/GerberLogo.png)
-# Gerber: Generalized Easy Reproducible Bioinformatics Environment Wrapper
+# Gerber: Generalized Easy Reproducible Bioinformatics Environment WRapper
 Step-by-step use cases of containers and workflows to package reproducible bioinformatics softwares.
 ![alt text](generate_flowchart/flowChartImages/stackedPlatesChart.png)
 
